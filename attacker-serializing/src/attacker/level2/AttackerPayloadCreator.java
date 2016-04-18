@@ -17,9 +17,9 @@ public class AttackerPayloadCreator {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
     try (ObjectOutputStream oos = new ObjectOutputStream(baos)) {
-      // use the dangerous serializable InvocationHandler from victim's ClassPath
+      // use the dangerous serializable InvocationHandler from victim's ClassPath (as Abuse Gadget)
       DangerousSerializableInvocationHandler handler = 
-                                             new DangerousSerializableInvocationHandler();
+                              new DangerousSerializableInvocationHandler();
 
       // create the proxy instance with it:
       Map mapViaProxy = (Map) Proxy.newProxyInstance(
@@ -27,7 +27,7 @@ public class AttackerPayloadCreator {
                          new Class[]{Map.class}, 
                          handler);
 			
-      // create the Gadget and set the desired payload data in it
+      // create the Trigger Gadget and set the desired payload data in it
       // (if private, use reflection)
       SomeHarmlessMappingDTO gadget = new SomeHarmlessMappingDTO();
 

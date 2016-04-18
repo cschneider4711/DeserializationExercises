@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
+// Just sits on server's ClassPath
+// Totally unrelated to the deserialization endpoint (which expects something other)
 public class SomeDangerousSerializableThing implements Serializable {
 	
   private String command;
